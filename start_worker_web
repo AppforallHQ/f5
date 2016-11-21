@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source .virtualenv/bin/activate
+NEW_RELIC_CONFIG_FILE=newrelic.ini
+export NEW_RELIC_CONFIG_FILE
+exec newrelic-admin run-program uwsgi --enable-threads --single-interpreter --http :$PORT --wsgi fpan.wsgi -p5 

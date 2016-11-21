@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+<head>
+    <title>Processing Payment…</title>
+    <meta charset="utf-8" />
+ 		<link href="css/style.css" media="all" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="page-box">
+  	<div class="loading-img"><img src="images/ajax_loader.gif"></div>
+    <div class="org-text">در حال انتقال به صفحه بانک،<br />لطفا چند لحظه صبر کنید…</div>
+    <div class="error-box">
+    	<div class="error-text">انتقال به درگاه بانک با مشکل مواجه شد. لطفا بعدا دوباره تلاش نمایید</div>
+      <br>
+    	<a href="#" class="gotovitrin-link">بازگشت به صفحه نخست</a>
+    </div>
+  </div>
+
+    <form id='gateway_form' method='post' action='https://bpm.shaparak.ir/pgwchannel/startpay.mellat' name='gateway_form'>
+      <input type='hidden' name='RefId' value='{{ refId }}' />
+    </form>
+    <script type='text/javascript'>document.forms['gateway_form'].submit();</script>
+</body>
+</html>

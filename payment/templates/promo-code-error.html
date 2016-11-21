@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+<head>
+    <title>Processing Payment…</title>
+    <meta charset="utf-8" />
+ 		<link href="css/style.css" media="all" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="page-box">
+  	<div class="loading-img"><img src="images/error.png"></div>
+    <div class="org-text">خطا در پرداخت آنلاین</div>
+    <div class="error-box">
+    	<div class="error-text">متاسفانه کاربری با ایمیل دیگر با این کد تخفیف اقدام به ثبت نام کرده است. <br>اگر این کد تخفیف متعلق به شماست با پشتیبانی تماس بگیرید</div>
+      <br>
+    	<a href="#" class="gotovitrin-link">بازگشت به صفحه نخست</a>
+    </div>
+  </div>
+
+    <form id='gateway_form' method='post' action='https://bpm.shaparak.ir/pgwchannel/startpay.mellat' name='gateway_form'>
+      <input type='hidden' name='RefId' value='{{ refId }}' />
+    </form>
+    <script type='text/javascript'>document.forms['gateway_form'].submit();</script>
+</body>
+</html>

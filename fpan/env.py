@@ -1,0 +1,6 @@
+DATABASE_URL = "sqlite:////tmp/fpan.sqlite3"
+ANALYTICS_API = ""
+PROJECT_DOMAIN = "jubuntu.local:3000"
+USERS_USER = "admin"
+CUSTOMER_SITE_ID = ""
+CUSTOMER_API_KEY = ""

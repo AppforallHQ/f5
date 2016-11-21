@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "-----> Notice"
+echo "Run migrations via this command after deploy"
+echo "************************"
+echo "$ heroku run bin/migrate"
+echo "************************"

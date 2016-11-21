@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source .virtualenv/bin/activate
+exec python manage.py celery worker --pidfile celery.pid

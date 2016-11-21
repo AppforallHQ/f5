@@ -1,0 +1,5 @@
+#!/bin/sh
+sudo stop fpan
+./export_procfile
+sudo start fpan
+echo "restarting uWSGI app"

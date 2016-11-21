@@ -1,0 +1,11 @@
+*.pyc
+*.sqlite3
+.coverage
+htmlcov
+.env.local
+tmp/*
+.virtualenv/
+celery.pid
+staticfiles/
+cron/*.log
+amir.log

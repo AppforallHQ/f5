@@ -1,0 +1,65 @@
+{% load static %}
+<html>
+<head>
+    <title>Processing Payment…</title>
+    <meta charset="utf-8" />
+ 		<link href="{{uri}}css/style.css" media="all" type="text/css" rel="stylesheet">
+</head>
+<body>    
+    <div class="page-box">
+    {% if not general_page %}  	
+    <div class="loading-img"><img src="{{uri}}images/ajax_loader.gif"></div>
+    {% endif %}
+
+    {% if mellat %}
+    <div class="org-text">در حال انتقال به صفحه بانک،<br />لطفا چند لحظه صبر کنید…</div>
+    
+    
+    {% if error %}
+    <div class="error-box">
+    	<div class="error-text">انتقال به درگاه بانک با مشکل مواجه شد. لطفا بعدا دوباره تلاش نمایید</div>
+      <br>
+    </div>
+    <form id='gateway_form' method='post' action='{{result_url}}' name='gateway_form'>
+	<input type='hidden' name='additionalData' value='{{ token }}' />
+    </form>
+    <script type='text/javascript'>setTimeout("document.forms['gateway_form'].submit();",1000)</script>
+    
+    
+    {% else %}
+    
+    <form id='gateway_form' method='post' action='https://bpm.shaparak.ir/pgwchannel/startpay.mellat' name='gateway_form'>
+      <input type='hidden' name='RefId' value='{{ refId }}' />
+    </form>
+    <script type='text/javascript'>setTimeout("document.forms['gateway_form'].submit();",1000)</script>
+    
+    {% endif %}
+    
+    {% endif%}
+
+
+    {%if mock %}
+	<div class="org-text">بر اساس کد تخفیفی که وارد کرده‌اید نیازی به پرداخت آنلاین ندارید.<br/>در حال انتقال به پنل کاربران اپفورال...</div>
+	<form id='gateway_form' method='post' action='{{result_url}}' name='gateway_form'>
+	    <input type='hidden' name='additionalData' value='{{ token }}' />
+	</form>
+    <script type='text/javascript'>setTimeout("document.forms['gateway_form'].submit();",1000)</script>
+    {% endif %}
+
+    
+    {%if general_page %}
+	<div class="loading-img"><img src="{{uri}}images/error.png"></div>
+	<div class="org-text">پرداخت بانکی</div>
+	<div class="error-box">
+	    {% autoescape off %}
+	    <div class="error-text">{{error_msg}}</div>
+	    {% endautoescape %}
+	  <br>
+	</div>
+	<a href="{{link}}" class="gotovitrin-link">بازگشت به صفحه نخست</a>
+    {% endif %}
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "body": "Dear user, pay the invoice from the link",
+  "subject": "pay the invoice, man",
+  "sender": "foo@example.com",
+}
